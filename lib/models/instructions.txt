@@ -1,0 +1,14 @@
+before going to the UI desing, first lets make some constant variables
+- create a separete file.
+- lets start creating our homepae Screen (note use statefull widget because the state is changing with time, store, all the functions and variables in the home scren)
+
+- now lets start working on the UI 
+ -- change the background color and the appBar
+ -- imports the constants.dart in the homepage (because all our colors are stay there)
+ -- lets add some demo questions
+ -- now lets create our queations widget
+ -- add the main questions to the home_screen
+ -- now chnage the style of the question
+ -- done with the Question widget
+
+ - Ceate the next Question with button
