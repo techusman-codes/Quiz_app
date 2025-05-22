@@ -1,5 +1,6 @@
 import 'package:demo_app/models/Questions/qustions_models.dart';
 import 'package:demo_app/models/constants.dart';
+import 'package:demo_app/models/widget/next_widget.dart';
 import 'package:demo_app/models/widget/quiz_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -58,6 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+      // use the floating action button to create the next Question
+      floatingActionButton: NextButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
