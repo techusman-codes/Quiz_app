@@ -13,3 +13,14 @@ before going to the UI desing, first lets make some constant variables
 
  - Ceate the next Question with button
  -- add it to the floating action Button
+ -- now lets add some functionalities to it
+ -- like when we clicked a question then it will show
+ -- to do that need to pass a function that does all the work.
+
+-- now lets add the options 
+ -- now lets create our own custom widget for the questions
+ -- lets add it to the home screen
+ -- make it clickable 
+ -- also change the color when the button is clicked
+ -- now that's changing we cant let the user know the answer even before he select anything.
+ -- lets add some conditions about it. if the user has clickd then chnage the color ortherwise dont chnage the color.
