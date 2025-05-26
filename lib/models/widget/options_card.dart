@@ -9,7 +9,7 @@ class OptionsCard extends StatelessWidget {
   const OptionsCard({
     super.key,
     required this.option,
-    required this.ontap,
+
     required this.isClicked,
     required this.color,
     required this.option1,
@@ -17,20 +17,17 @@ class OptionsCard extends StatelessWidget {
 
   final bool isClicked;
   final Color color;
-  final VoidCallback ontap;
+
   final String option1;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: ontap,
-      child: Card(
-        color: color,
-        child: ListTile(
-          title: Text(
-            option,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 22.0),
-          ),
+    return Card(
+      color: color,
+      child: ListTile(
+        title: Text(
+          option,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 22.0),
         ),
       ),
     );

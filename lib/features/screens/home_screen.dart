@@ -34,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // create an index to loop through the questions
   int index = 0;
+  // create a score variable
+  int score = 0;
   // create a boolean if the user has has clicked
   bool isPressed = false;
 
@@ -42,17 +44,30 @@ class _HomeScreenState extends State<HomeScreen> {
     if (index == _questions.length - 1) {
     } else {
       setState(() {
-        index++; // when the index will change to one then rebuld the app
-        isPressed = false;
+        if (isPressed) {
+          index++; // when the index will change to one then rebuld the app
+          isPressed = false;
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("Please select an option"),
+              behavior: SnackBarBehavior.floating,
+              margin: EdgeInsets.symmetric(vertical: 20.0),
+            ),
+          );
+        }
       });
     }
   }
 
   // creatin  a function for changing color
-  void changeColor() {
-    setState(() {
-      isPressed = true;
-    });
+  void checkAnswerAndUpdate(bool value) {
+    if (value == true) {
+      score++;
+      setState(() {
+        isPressed = true;
+      });
+    }
   }
 
   @override
@@ -63,6 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Quiz App', style: TextStyle(color: Colors.white)),
         backgroundColor: backround,
         shadowColor: Colors.transparent,
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: Text('Score: $score', style: TextStyle(fontSize: 18.0)),
+          ),
+        ],
       ),
       body: Container(
         width: double.infinity,
@@ -81,17 +102,24 @@ class _HomeScreenState extends State<HomeScreen> {
             // add some space here
             const SizedBox(height: 25.0),
             for (int i = 0; i < _questions[index].options.length; i++)
-              OptionsCard(
-                option: _questions[index].options.keys.toList()[i],
-                color:
-                    isPressed
-                        ? _questions[index].options.values.toList()[i] == true
-                            ? correct
-                            : incorrect
-                        : neutral,
-                ontap: changeColor,
-                isClicked: false, // Set this according to your logic
-                option1: '', // Set this according to your logic or data model
+              GestureDetector(
+                onTap:
+                    () => checkAnswerAndUpdate(
+                      _questions[index].options.values.toList()[i],
+                    ),
+                child: OptionsCard(
+                  option: _questions[index].options.keys.toList()[i],
+                  // first check if the answer is correct
+                  color:
+                      isPressed
+                          ? _questions[index].options.values.toList()[i] == true
+                              ? correct
+                              : incorrect
+                          : neutral,
+
+                  isClicked: false, // Set this according to your logic
+                  option1: '', // Set this according to your logic or data model
+                ),
               ),
           ],
         ),

@@ -27,3 +27,6 @@ before going to the UI desing, first lets make some constant variables
  -- now that is fixed we have to add a function for when its pressed value chaned.
  -- fix that a bug in the nextQuestion widget
  -- its fixed now moveon the nextpart
+ -- add some score to show in ur app
+ -- add some functionalities to increase the value of our score,
+ when the user answer a question correctly then the score will increae go up to 1 
