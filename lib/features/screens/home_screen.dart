@@ -34,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // create an index to loop through the questions
   int index = 0;
+  // create a boolean if the user has has clicked
+  bool isPressed = false;
 
   // now create a function to display through the nexxt Question
   void nextQuestion() {
@@ -41,8 +43,16 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       setState(() {
         index++; // when the index will change to one then rebuld the app
+        isPressed = false;
       });
     }
+  }
+
+  // creatin  a function for changing color
+  void changeColor() {
+    setState(() {
+      isPressed = true;
+    });
   }
 
   @override
@@ -74,9 +84,12 @@ class _HomeScreenState extends State<HomeScreen> {
               OptionsCard(
                 option: _questions[index].options.keys.toList()[i],
                 color:
-                    _questions[index].options.values.toList()[i] == true
-                        ? correct
-                        : incorrect,
+                    isPressed
+                        ? _questions[index].options.values.toList()[i] == true
+                            ? correct
+                            : incorrect
+                        : neutral,
+                ontap: changeColor,
                 isClicked: false, // Set this according to your logic
                 option1: '', // Set this according to your logic or data model
               ),
