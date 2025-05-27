@@ -81,7 +81,10 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Padding(
             padding: EdgeInsets.all(10),
-            child: Text('Score: $score', style: TextStyle(fontSize: 18.0)),
+            child: Text(
+              'Score: $score',
+              style: TextStyle(fontSize: 18.0, color: Colors.white),
+            ),
           ),
         ],
       ),
