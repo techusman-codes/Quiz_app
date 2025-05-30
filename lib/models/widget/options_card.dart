@@ -27,7 +27,12 @@ class OptionsCard extends StatelessWidget {
         title: Text(
           option,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 22.0),
+          style: TextStyle(
+            fontSize: 22.0,
+            // decide if the color we are receiving here
+            // what ratio of the "red" and "green" colors are in it.
+            color: Colors.red != Colors.green ? neutral : Colors.black,
+          ),
         ),
       ),
     );

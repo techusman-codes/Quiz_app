@@ -3,6 +3,7 @@ import 'package:demo_app/models/constants.dart';
 import 'package:demo_app/models/widget/next_widget.dart';
 import 'package:demo_app/models/widget/options_card.dart';
 import 'package:demo_app/models/widget/quiz_widget.dart';
+import 'package:demo_app/models/widget/result_box.dart';
 import 'package:flutter/material.dart';
 
 //  store all the function and varialbes here but it will be change in future
@@ -42,6 +43,17 @@ class _HomeScreenState extends State<HomeScreen> {
   // now create a function to display through the nexxt Question
   void nextQuestion() {
     if (index == _questions.length - 1) {
+      // this is the block where the questions end.
+
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder:
+            (ctx) => ResultBox(
+              result: score, // total points the user got
+              questionLenght: _questions.length,
+            ),
+      );
     } else {
       setState(() {
         if (isPressed) {
