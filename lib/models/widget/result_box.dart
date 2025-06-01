@@ -8,9 +8,12 @@ class ResultBox extends StatelessWidget {
     super.key,
     required this.result,
     required this.questionLenght,
+    required this.onPressed,
+    
   });
   final int result;
   final int questionLenght;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -44,6 +47,18 @@ class ResultBox extends StatelessWidget {
                   ? "Try Again ?"
                   : 'Great!',
               style: TextStyle(color: neutral),
+            ),
+            SizedBox(height: 25.0),
+            GestureDetector(
+              onTap: onPressed,
+              child: Text(
+                'Start Over',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 20.0,
+                  letterSpacing: 1.0,
+                ),
+              ),
             ),
           ],
         ),

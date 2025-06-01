@@ -39,6 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int score = 0;
   // create a boolean if the user has has clicked
   bool isPressed = false;
+  // create a boolean to track if an option is already selected
+  bool isAlreadySelected = false;
 
   // now create a function to display through the nexxt Question
   void nextQuestion() {
@@ -52,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
             (ctx) => ResultBox(
               result: score, // total points the user got
               questionLenght: _questions.length,
+              onPressed: startOver,
             ),
       );
     } else {
@@ -76,10 +79,22 @@ class _HomeScreenState extends State<HomeScreen> {
   void checkAnswerAndUpdate(bool value) {
     if (value == true) {
       score++;
-      setState(() {
-        isPressed = true;
-      });
     }
+    setState(() {
+      isPressed = true;
+      isAlreadySelected = true;
+    });
+  }
+
+  // create a function to start over
+  void startOver() {
+    setState(() {
+      index = 0;
+      score = 0;
+      isPressed = false;
+      isAlreadySelected = false;
+    });
+    Navigator.pop(context);
   }
 
   @override

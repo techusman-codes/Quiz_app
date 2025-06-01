@@ -33,3 +33,8 @@ before going to the UI desing, first lets make some constant variables
 
  -- create a result box at the end of our quiz, it s going to show the result.
  
+ -- now lets add a button to start the quiz from start.
+    -- now we need a function to do the work
+    -- create the function in the home_screen
+    --fixed the bug in the code so that we can only select the correct answer
+    
