@@ -38,3 +38,6 @@ before going to the UI desing, first lets make some constant variables
     -- create the function in the home_screen
     --fixed the bug in the code so that we can only select the correct answer
     
+
+-- lets add a Database to our Application
+  -- go to firebase.google.com
